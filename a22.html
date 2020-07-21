@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <H2> CLASSES IN javascript</H2>
+    <script>
+        
+    class User{
+    constructor(name,age,email){
+        this.name=name;
+        this.age=age;
+        this.email=email;
+    
+
+    }
+    
+    login(){   //login function
+        console.log(this.name +" has logged in")
+        return this;
+    }
+
+    logout(){  //logout function
+        console.log(this.name+"  has logged out")
+        return this
+    }}
+    class Moderator extends User{  //moderator class 
+    constructor(){
+        this.lucoins=lucoins;
+    }
+        addcoins(){ //addcoins
+        this.lucoins++;
+        console.log(this.name+" has "+this.lucoins+" coins")
+        return this
+    }
+    deletecoins(){ //delete coins
+        this.lucoins--;
+        console.log(this.name+" has "+this.lucoins+" coins")
+        return this
+    }
+}
+class Admin extends Moderator{
+    addCourse(user,course){  //addcourse
+        user.courses.push(course);
+        console.log(user)
+    }
+    deleteCourse(user,course){  //deletecourse
+        for(let i = 0; i < user.courses.length ; i++){
+            if(course === user.courses[i]){
+                 user.courses.splice(i,1);
+            }
+        }
+        return user.courses;
+
+    }
+
+
+}
+let user1=new User("arushi",20,"arushiabhilashi04@gmail.com")
+let user2= new User("rahul",16,"rahul@gmail.com")
+let mod=new Moderator('berlin',24,"b@gmail.com")
+let admin=new Admin('rio',67,"r@gmail.com")
+let users=[user1,user2,mod,admin]
+users.forEach(element=>{
+    console.log(element);
+})
+user1.login()
+user2.addcoins()
+user2.login()
+user2.addcoins()
+user2.addcoins()
+user2.logout()
+mod.addcoins(user1);
+mod.addcoins(user1);
+
+
+console.log(users);
+
+admin.addCourse(user1,"javascript")
+admin.addCourse(user1,"python")
+admin.deleteCourse(user1,"javascript")
+
+    
+    
+    
+    </script>
+</body>
+</html>
